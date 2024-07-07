@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:test/test.dart';
-import 'package:fast_package/fast_ratelimit/fast_ratelinit.dart';
+import 'package:fast_package/fast_ratelimit/fast_ratelimit.dart';
 
 void main() {
   group("test fast_ratelimt", () {
