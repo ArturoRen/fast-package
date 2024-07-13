@@ -1,10 +1,9 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
+import 'package:fast_package/fast_rate_limit/fast_rate_limit.dart';
 import 'package:test/test.dart';
-import 'package:fast_package/fast_ratelimit/fast_ratelimit.dart';
 
 void main() {
-  group("test fast_ratelimt", () {
+  group("test fast_rate_limit", () {
     /// tearDown,测试完成后清理limit
     tearDown(() async {
       final Completer completer = Completer();
