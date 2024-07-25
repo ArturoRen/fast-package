@@ -18,7 +18,9 @@ class _DebounceExampleState extends State<DebounceExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
+      ),
       body: Column(
         children: [
           Container(
@@ -187,7 +189,7 @@ class _DebounceExampleState extends State<DebounceExample> {
                   onExecute: () {},
                   onAfter: () {
                     setState(() {
-                      countOnAfter--;
+                      countOnAfter++;
                     });
                   },
                 ),

@@ -5,14 +5,8 @@ class ExampleIndex extends StatelessWidget {
   ExampleIndex({super.key});
 
   final List<ListType> exampleList = [
-    ListType(
-      name:"double",
-      path: ExampleRoute.debounce
-    ),
-     ListType(
-      name:"double",
-      path: ExampleRoute.debounce
-    ),
+    ListType(name: "double example", path: ExampleRoute.debounce),
+    ListType(name: "overlay example", path: ExampleRoute.overlay),
   ];
 
   @override
@@ -23,7 +17,7 @@ class ExampleIndex extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (context, index) {
-         ListType data = exampleList[index];
+          ListType data = exampleList[index];
           return ListTile(
             onTap: () {
               Navigator.of(context).pushNamed(data.path);
@@ -31,20 +25,21 @@ class ExampleIndex extends StatelessWidget {
             title: Text(data.name),
           );
         },
-        itemCount: exampleList.length, separatorBuilder: (BuildContext context, int index) { 
+        itemCount: exampleList.length,
+        separatorBuilder: (BuildContext context, int index) {
           return Container(
             width: double.infinity,
             height: 1,
             color: Colors.black,
           );
-         },
+        },
       ),
     );
   }
 }
 
-class ListType{
+class ListType {
   String name;
   String path;
-  ListType({required this.name,required this.path});
+  ListType({required this.name, required this.path});
 }

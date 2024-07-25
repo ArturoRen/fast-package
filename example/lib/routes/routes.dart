@@ -1,5 +1,6 @@
 import 'package:example/pages/debounce_example/debounce_example.dart';
 import 'package:example/pages/index/example_index.dart';
+import 'package:example/pages/overlay_example/overlat_example.dart';
 import 'package:flutter/cupertino.dart';
 
 class ExampleRoute {
@@ -7,15 +8,17 @@ class ExampleRoute {
 
   static String get initRoutes => index;
 
-
   static String index = '/';
   static String detail = '/detail';
   //防抖系列
   static String debounce = '/debounce';
+  //overlay系列
+  static String overlay = '/overlay';
 
   static Map<String, Widget Function(BuildContext)> get routes => {
-    index: (context) => ExampleIndex(),
-    detail: (context) => const Placeholder(),
-    debounce: (context) => const DebounceExample(),
-  };
+        index: (context) => ExampleIndex(),
+        detail: (context) => const Placeholder(),
+        debounce: (context) => const DebounceExample(),
+        overlay: (context) => const OverlayExampleWidget(),
+      };
 }
