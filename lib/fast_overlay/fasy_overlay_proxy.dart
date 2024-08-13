@@ -6,7 +6,11 @@ class FastOverlayProxy {
       _instance ??= FastOverlayProxy._internal();
   FastOverlayProxy._internal();
 
-  late BuildContext toastContext;
+  /// toast
+  static late BuildContext toastContext;
+
+  /// navigator
+  static BuildContext? contextNavigator;
 
   void showFastOverlay() {}
 }

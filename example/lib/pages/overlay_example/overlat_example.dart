@@ -1,4 +1,3 @@
-import 'package:fast_package/fast_overlay/fast_overlay.dart';
 import 'package:flutter/material.dart';
 
 class OverlayExampleWidget extends StatefulWidget {
@@ -21,9 +20,7 @@ class _OverlayExampleWidgetState extends State<OverlayExampleWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ElevatedButton(
-              onPressed: () {
-                FastOverlay.showFastToast("909");
-              },
+              onPressed: () {},
               child: SizedBox(
                 width: double.infinity,
                 child: Text(

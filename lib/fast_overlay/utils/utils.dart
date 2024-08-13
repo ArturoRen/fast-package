@@ -1,7 +1,13 @@
 import 'package:flutter/scheduler.dart'
     show SchedulerBinding, SchedulerPhase, VoidCallback;
 import 'package:flutter/widgets.dart'
-    show BuildContext, Overlay, OverlayState, WidgetsBinding;
+    show
+        BuildContext,
+        Overlay,
+        OverlayState,
+        WidgetsBinding,
+        Navigator,
+        GlobalKey;
 
 class ViewUtils {
   ViewUtils._();
@@ -16,3 +22,11 @@ class ViewUtils {
 }
 
 OverlayState overlay(BuildContext context) => Overlay.of(context);
+
+BuildContext? getNavigatorContext(Navigator navigator) {
+  BuildContext? context;
+  if (navigator.key is GlobalKey) {
+    context = (navigator.key as GlobalKey).currentContext;
+  }
+  return context;
+}

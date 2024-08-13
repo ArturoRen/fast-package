@@ -1,4 +1,4 @@
-import 'package:fast_package/fast_overlay/utils/view_utils.dart';
+import 'package:fast_package/fast_overlay/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class FastOverlayEntry extends OverlayEntry {

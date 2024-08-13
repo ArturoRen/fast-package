@@ -12,3 +12,5 @@ export 'package:fast_package/fast_extension/bool_extension.dart';
 
 //fast_overlay
 export 'package:fast_package/fast_overlay/fast_overlay_init.dart';
+//dash
+export 'package:fast_package/fast_dashed/fast_dashed_path.dart';
