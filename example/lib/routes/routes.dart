@@ -1,7 +1,6 @@
-import 'package:example/pages/dash/dash.dart';
+
 import 'package:example/pages/debounce_example/debounce_example.dart';
 import 'package:example/pages/index/example_index.dart';
-import 'package:example/pages/overlay_example/overlat_example.dart';
 import 'package:flutter/cupertino.dart';
 
 class ExampleRoute {
@@ -22,7 +21,5 @@ class ExampleRoute {
         index: (context) => ExampleIndex(),
         detail: (context) => const Placeholder(),
         debounce: (context) => const DebounceExample(),
-        overlay: (context) => const OverlayExampleWidget(),
-        dash: (context) => const ExampleDashWidget(),
       };
 }

@@ -1,7 +1,7 @@
 name: fast_package
-description: A new Flutter project.
+description: Flutter package to help you develop quickly.
 version: 0.0.1
-homepage:
+homepage: https://github.com/ArturoRen/fast-package
 
 environment:
   sdk: '>=3.3.4 <4.0.0'

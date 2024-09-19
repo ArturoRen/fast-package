@@ -6,8 +6,6 @@ class ExampleIndex extends StatelessWidget {
 
   final List<ListType> exampleList = [
     ListType(name: "double example", path: ExampleRoute.debounce),
-    ListType(name: "overlay example", path: ExampleRoute.overlay),
-    ListType(name: "dash example", path: ExampleRoute.dash),
   ];
 
   @override
