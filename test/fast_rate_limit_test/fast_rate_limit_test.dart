@@ -227,7 +227,7 @@ void main() {
       FastRateLimit.rateLimit(
           tag: 'cancel-all-2',
           duration: const Duration(milliseconds: 500),
-          onExecute: () =>  onExecute());
+          onExecute: () => onExecute());
       FastRateLimit.rateLimit(
           tag: 'cancel-all-3',
           duration: const Duration(milliseconds: 500),

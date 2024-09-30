@@ -35,12 +35,12 @@ class FastRateLimit {
     final rateLimit = _FastRateLimitOperation(
       Timer.periodic(duration, (timer) {
         final _FastRateLimitOperation? operation = _operations[tag];
-        if(operation !=null){
-          if(operation.callback == null){
+        if (operation != null) {
+          if (operation.callback == null) {
             operation.timer.cancel();
             _operations.remove(tag);
             onAfter?.call();
-          }else{
+          } else {
             operation.callback?.call();
             operation.onAfter?.call();
             operation.callback = null;
@@ -65,7 +65,6 @@ class FastRateLimit {
     });
     _operations.clear();
   }
-
 
   static int get count => _operations.length;
 }

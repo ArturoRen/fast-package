@@ -1,4 +1,3 @@
-
 extension FastStringNullSafeExtension on String? {
   /// 默认值
   String get nullSafeOrEmpty => this ?? '';
@@ -45,8 +44,8 @@ extension FastStringExtension on String {
 
   /// 私有方法：根据正则表达式分割单词
   /// Private method: divide words according to regular expressions.
-  List<String> _splitWords(String str) =>
-      str.split(RegExp(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|[_\-\s]+'));
+  List<String> _splitWords(String str) => str
+      .split(RegExp(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|[_\-\s]+'));
 
   /// 私有方法：将字符串转换为带分隔符的命名法
   /// Private method: Convert a string to a delimited naming method.
@@ -58,7 +57,8 @@ extension FastStringExtension on String {
   /// 私有方法：将字符串转为驼峰命名
   /// Private method: convert the string into hump naming.
   String _convertToCamelCase(String str, bool upperCamelCase) {
-    final List<String> words = str.split(RegExp(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|[_\-\s]+'));
+    final List<String> words = str.split(
+        RegExp(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|[_\-\s]+'));
     final List<String> capitalizedWords =
         words.map((word) => _capitalizeFirstLetter(word)).toList();
     if (upperCamelCase) {

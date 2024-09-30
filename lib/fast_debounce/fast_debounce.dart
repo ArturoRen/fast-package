@@ -1,6 +1,3 @@
-
-
-
 import 'package:fast_package/use_package.dart';
 
 /// 定义一个void回调作为参数，避免导入过多的包
@@ -39,7 +36,7 @@ class FastDebounce {
         onExecute,
         Timer(
           duration,
-          (){
+          () {
             _operations[tag]?.timer.cancel();
             _operations.remove(tag);
             onExecute();
@@ -55,7 +52,6 @@ class FastDebounce {
   static void fire(String tag) {
     _operations[tag]?.callback();
   }
-
 
   ///取消发抖
   static void cancel(String tag) {

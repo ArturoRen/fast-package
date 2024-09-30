@@ -203,7 +203,8 @@ void main() {
       );
     });
 
-    test("count()返回活动节流的数量 \n count() returns the number of active throttles", () {
+    test("count()返回活动节流的数量 \n count() returns the number of active throttles",
+        () {
       expect(FastThrottle.count, 0);
       final onExecute = expectAsync0(() {}, count: 3);
       FastThrottle.throttle(
@@ -226,52 +227,82 @@ void main() {
       expect(FastThrottle.count, 3);
     });
 
-
     test("cancel()取消节流 \n cancel() cancels a throttle", () {
       String tagA = 'cancel_1';
       String tagB = 'cancel_2';
       String tagC = 'cancel_3';
       final onExecute = expectAsync0(() {}, count: 3);
-       expect(FastThrottle.count, 0);
-       FastThrottle.throttle(tag: tagA, duration: const Duration(milliseconds: 500), onExecute: ()=>onExecute());
-       FastThrottle.throttle(tag: tagB, duration: const Duration(milliseconds: 500), onExecute: ()=>onExecute());
-       FastThrottle.throttle(tag: tagC, duration: const Duration(milliseconds: 500), onExecute: ()=>onExecute());
+      expect(FastThrottle.count, 0);
+      FastThrottle.throttle(
+          tag: tagA,
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
+      FastThrottle.throttle(
+          tag: tagB,
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
+      FastThrottle.throttle(
+          tag: tagC,
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
 
-       expect(FastThrottle.count, 3);
+      expect(FastThrottle.count, 3);
 
-       FastThrottle.cancel(tagA);
-       expect(FastThrottle.count, 2);
-       FastThrottle.cancel(tagB);
-       expect(FastThrottle.count, 1);
-       FastThrottle.cancel(tagC);
-       expect(FastThrottle.count, 0);
+      FastThrottle.cancel(tagA);
+      expect(FastThrottle.count, 2);
+      FastThrottle.cancel(tagB);
+      expect(FastThrottle.count, 1);
+      FastThrottle.cancel(tagC);
+      expect(FastThrottle.count, 0);
     });
 
-    test("cancel()减少活动节流的数量 \n cancel() decreases the number of active throttles", () {
+    test(
+        "cancel()减少活动节流的数量 \n cancel() decreases the number of active throttles",
+        () {
       String tagA = 'cancel_1';
       String tagB = 'cancel_2';
       String tagC = 'cancel_3';
       final onExecute = expectAsync0(() {}, count: 3);
-      FastThrottle.throttle(tag: tagA, duration: const Duration(milliseconds: 500), onExecute:()=> onExecute());
-      FastThrottle.throttle(tag: tagB, duration: const Duration(milliseconds: 500), onExecute:()=> onExecute());
-      FastThrottle.throttle(tag: tagC, duration: const Duration(milliseconds: 500), onExecute:()=> onExecute());
+      FastThrottle.throttle(
+          tag: tagA,
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
+      FastThrottle.throttle(
+          tag: tagB,
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
+      FastThrottle.throttle(
+          tag: tagC,
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
       expect(FastThrottle.count, 3);
       FastThrottle.cancel(tagA);
       expect(FastThrottle.count, 2);
     });
 
-    test("对不存在的标记调用cancel()不会导致异常 \n calling cancel() on a non-existing tag doesn't cause an exception", () {
+    test(
+        "对不存在的标记调用cancel()不会导致异常 \n calling cancel() on a non-existing tag doesn't cause an exception",
+        () {
       FastThrottle.cancel('non-existing-tag');
     });
 
-
-    test("cancelAll()取消并删除所有计时器 \n cancelAll() cancels and removes all timers", () {
+    test("cancelAll()取消并删除所有计时器 \n cancelAll() cancels and removes all timers",
+        () {
       expect(FastThrottle.count, 0);
       final onExecute = expectAsync0(() {}, count: 3);
 
-      FastThrottle.throttle(tag: 'cancelAll_1', duration: const Duration(milliseconds: 500), onExecute:()=> onExecute());
-      FastThrottle.throttle(tag: 'cancelAll_2', duration: const Duration(milliseconds: 500), onExecute:()=> onExecute());
-      FastThrottle.throttle(tag: 'cancelAll_3', duration: const Duration(milliseconds: 500), onExecute:()=> onExecute());
+      FastThrottle.throttle(
+          tag: 'cancelAll_1',
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
+      FastThrottle.throttle(
+          tag: 'cancelAll_2',
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
+      FastThrottle.throttle(
+          tag: 'cancelAll_3',
+          duration: const Duration(milliseconds: 500),
+          onExecute: () => onExecute());
       expect(FastThrottle.count, 3);
       FastThrottle.cancelAll();
       expect(FastThrottle.count, 0);
